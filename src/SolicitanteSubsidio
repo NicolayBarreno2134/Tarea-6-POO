@@ -1,1 +1,15 @@
+public class SolicitanteSubsidio {
+    private String nombreCompleto;
+    private String cedula;
+    private double ingresosMensuales;
+    private int cantidadVehiculos;
+    private boolean viveEnEcuador;
 
+    public SolicitanteSubsidio(String nombreCompleto, String cedula, double ingresosMensuales, int cantidadVehiculos, boolean viveEnEcuador) {
+        this.nombreCompleto = nombreCompleto;
+        this.cedula = cedula;
+        this.ingresosMensuales = ingresosMensuales;
+        this.cantidadVehiculos = cantidadVehiculos;
+        this.viveEnEcuador = viveEnEcuador;
+    }
+}
