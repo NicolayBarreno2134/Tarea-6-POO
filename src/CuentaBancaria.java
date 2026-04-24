@@ -43,4 +43,11 @@ abstract class CuentaBancaria {
         }
         saldo -= monto;
     }
+    public abstract double calcularInteresMensual();
+
+    public void mostrarReporte(){
+        System.out.println("Cuenta: "+numeroCuenta);
+        System.out.println("Titular: "+titular);
+        System.out.println("Saldo actual: "+saldo);
+    }
 }
