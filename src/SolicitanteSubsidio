@@ -90,4 +90,10 @@ public class SolicitanteSubsidio {
         + "\nCedula: " + cedula + "\nIngresos mensuales: " +
         ingresosMensuales + "\nViven en Ecuador: " + viveEnEcuador;
     }
+    public static void mostrarReglasSubsidio(){
+        System.out.println("\n===== Reglas para obtener el subsidio =====");
+        System.out.println("\n1. Tener ingresos mensuales menores o iguales a $1200");
+        System.out.println("\n2. No poseer más de un vehículo registrado");
+        System.out.println("\n3. Tener residencia en Ecuador");
+    }
 }
