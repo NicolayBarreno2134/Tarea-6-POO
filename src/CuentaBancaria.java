@@ -85,3 +85,22 @@ class CuentaCorriente extends CuentaBancaria{
         return 0;
     }
 }
+class CuentaInversion extends CuentaBancaria{
+    public CuentaInversion(String numeroCuenta, String titular, double saldoInicial) {
+        super(numeroCuenta, titular, saldoInicial);
+    }
+    @Override
+    public double calcularInteresMensual(){
+        double tasaAnual;
+        if (getSaldo()<1000){
+            tasaAnual=0.04;
+        } else if (getSaldo()<=5000) {
+            tasaAnual=0.05;
+        } else {
+            tasaAnual=0.06;
+        }
+        double interes=getSaldo()*tasaAnual/12;
+        saldo+=interes;
+        return interes;
+    }
+}
