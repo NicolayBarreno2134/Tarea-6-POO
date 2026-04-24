@@ -51,3 +51,37 @@ abstract class CuentaBancaria {
         System.out.println("Saldo actual: "+saldo);
     }
 }
+//Cuenta Ahorros
+class CuentaAhorros extends CuentaBancaria{
+    public CuentaAhorros(String numeroCuenta, String titular, double saldoInicial) {
+        super(numeroCuenta, titular, saldoInicial);
+    }
+    @Override
+    public double calcularInteresMensual() {
+        double interes=getSaldo()*0.03/12;
+        saldo+=interes;
+        return interes;
+    }
+}
+//Cuenta Corriente
+class CuentaCorriente extends CuentaBancaria{
+    public CuentaCorriente(String numeroCuenta, String titular, double saldoInicial) {
+        super(numeroCuenta, titular, saldoInicial);
+    }
+    @Override
+    public void retirar(double monto) {
+        if (monto <= 0) {
+            System.out.println("Retiro invalido. Debe ser mayor a 0.");
+            return;
+        }
+        if (saldo-monto<-500){
+            System.out.println("Sobregiro maximo alcanzado(-500 USD)");
+            return;
+        }
+        saldo -= monto;
+    }
+    @Override
+    public double calcularInteresMensual() {
+        return 0;
+    }
+}
