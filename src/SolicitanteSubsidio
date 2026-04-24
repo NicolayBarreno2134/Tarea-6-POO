@@ -12,4 +12,52 @@ public class SolicitanteSubsidio {
         this.cantidadVehiculos = cantidadVehiculos;
         this.viveEnEcuador = viveEnEcuador;
     }
+
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public double getIngresosMensuales() {
+        return ingresosMensuales;
+    }
+
+    public int getCantidadVehiculos() {
+        return cantidadVehiculos;
+    }
+
+    public boolean isViveEnEcuador() {
+        return viveEnEcuador;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public void setIngresosMensuales(double ingresosMensuales) {
+        if(ingresosMensuales <= 470){
+            this.ingresosMensuales = ingresosMensuales;
+        } else {
+            System.out.println("Error. Debe tener ingresos mensuales menores o iguales a $1200");
+        }
+    }
+
+    public void setCantidadVehiculos(int cantidadVehiculos) {
+        if(cantidadVehiculos > 0){
+            this.cantidadVehiculos = cantidadVehiculos;
+        } else {
+            System.out.println("Error. El numero debe ser positivo");
+        }
+    }
+
+    public void setViveEnEcuador(boolean viveEnEcuador) {
+        this.viveEnEcuador = viveEnEcuador;
+    }
 }
