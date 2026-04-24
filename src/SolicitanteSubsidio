@@ -60,4 +60,34 @@ public class SolicitanteSubsidio {
     public void setViveEnEcuador(boolean viveEnEcuador) {
         this.viveEnEcuador = viveEnEcuador;
     }
+    public boolean subsidioAprobado(){
+        if(ingresosMensuales <= 1200 && cantidadVehiculos <= 1 && viveEnEcuador){
+            return true;
+        } else {
+            return  false;
+        }
+    }
+    public void generarResultado(){
+        if(subsidioAprobado()){
+            System.out.println("Subsidio aprobado");
+        } else {
+            System.out.println("Subsidio rechazado");
+            System.out.println("Motivo: ");
+            if(ingresosMensuales > 1200){
+                System.out.println(" - Ingresos mayores a 1200");
+            }
+            if(cantidadVehiculos > 1){
+                System.out.println(" - Posee mas de un vehiculo");
+            }
+            if(!viveEnEcuador){
+                System.out.println(" - No vive en Ecuador");
+            }
+        }
+    }
+    @Override
+    public String toString(){
+        return "\n===== Datos del solicitante ===== \nNombre: " + nombreCompleto
+        + "\nCedula: " + cedula + "\nIngresos mensuales: " +
+        ingresosMensuales + "\nViven en Ecuador: " + viveEnEcuador;
+    }
 }
