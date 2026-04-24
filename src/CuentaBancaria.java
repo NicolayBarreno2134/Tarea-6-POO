@@ -13,4 +13,34 @@ abstract class CuentaBancaria {
             this.saldo = saldo;
         }
     }
+
+    public String getNumeroCuenta() {
+        return numeroCuenta;
+    }
+
+    public String getTitular() {
+        return titular;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+    public void depositar(double monto) {
+        if (monto <= 0) {
+            System.out.println("Deposito invalido. Debe ser mayor a 0.");
+            return;
+        }
+        saldo += monto;
+    }
+    public void retirar(double monto){
+        if(monto <= 0){
+            System.out.println("Retiro invalido. Debe ser mayor a 0.");
+            return;
+        }
+        if (saldo-monto<0){
+            System.out.println("Fondos insuficientes");
+            return;
+        }
+        saldo -= monto;
+    }
 }
