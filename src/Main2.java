@@ -1,30 +1,23 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main2 {
     static void main() {
-        CuentaAhorros ahorros1=new CuentaAhorros("001","Ana Perez",1200);
-        CuentaCorriente corriente1=new CuentaCorriente("002","Luis Gomez",800);
-        CuentaInversion inversion1=new CuentaInversion("003","Maria Lopez",7000);
+        List<CuentaBancaria> cuentas = new ArrayList<>();
+            cuentas.add(new CuentaAhorros("001", "Ana Pérez", 1200));
+            cuentas.add(new CuentaCorriente("002", "Luis Gómez", 800));
+            cuentas.add(new CuentaInversion("003", "María López", 7000));
 
-        double totalInteres=0;
+        double totalIntereses = 0;
 
         System.out.println("===== REPORTE MENSUAL DEL BANCO =====");
-        double interesAhorros = ahorros1.calcularInteresMensual();
-        ahorros1.mostrarReporte();
-        System.out.println("Interes generado: $"+interesAhorros);
-        System.out.println("------------------------------------");
-        totalInteres +=interesAhorros;
-
-        double interesCorriente = corriente1.calcularInteresMensual();
-        corriente1.mostrarReporte();
-        System.out.println("Interes generado: $"+interesCorriente);
-        System.out.println("-----------------------------------");
-        totalInteres +=interesCorriente;
-
-        double interesInversion = inversion1.calcularInteresMensual();
-        inversion1.mostrarReporte();
-        System.out.println("Interes generado: $"+interesInversion);
-        System.out.println("----------------------------------");
-        totalInteres +=interesInversion;
-
-        System.out.println("TOTAL INTERESES DEL BANCO: $"+interesInversion);
+        for (CuentaBancaria cuenta : cuentas) {
+            double interes = cuenta.calcularInteresMensual();
+            cuenta.mostrarReporte();
+            System.out.println("Interés mensual generado: $" + interes);
+            System.out.println("-------------------------------------");
+            totalIntereses += interes;
+        }
+        System.out.println("TOTAL INTERESES DEL BANCO: $" + totalIntereses);
     }
 }
