@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        SolicitanteSubsidio.mostrarReglasSubsidio();
+        System.out.print("Ingrese su nombre completo: ");
+        String nombre = sc.nextLine();
+        System.out.print("Ingrese su cedula: ");
+        String cedula = sc.nextLine();
+        System.out.print("Ingrese sus ingresos mensuales: ");
+        double ingreso = sc.nextDouble();
+        System.out.print("Ingrese la cantidad de vehículos registrados: ");
+        int cantidad = sc.nextInt();
+        System.out.print("¿Vive en Ecuador? (true/false): ");
+        boolean viveEnEcuador = sc.nextBoolean();
+        SolicitanteSubsidio s = new SolicitanteSubsidio(nombre, cedula, ingreso, cantidad, viveEnEcuador);
+        System.out.println(s.toString());
+        s.generarResultado();
+        double consumoNormal = s.calcularConsumoMensual();
+        double consumoExtra = s.calcularConsumoMensual(80);
+        System.out.println("\n===== Cálculo de consumo mensual =====");
+        System.out.println("Consumo mensual estimado (sin km extra): " + consumoNormal + " galones");
+        System.out.println("Consumo con kilómetros extra (80 km adicionales): " + consumoExtra + " galones");
+    }
+}
