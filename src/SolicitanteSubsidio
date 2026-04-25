@@ -96,4 +96,12 @@ public class SolicitanteSubsidio {
         System.out.println("\n2. No poseer más de un vehículo registrado");
         System.out.println("\n3. Tener residencia en Ecuador");
     }
+    public double calcularConsumoMensual(){
+        double kmMensuales = 400;
+        return kmMensuales / 40;
+    }
+    public double calcularConsumoMensual(double kmExtra){
+        double kmMensuales = 400;
+        return (kmMensuales + kmExtra) / 40;
+    }
 }
